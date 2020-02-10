@@ -1,0 +1,28 @@
+# Training configuration for Kits model
+nEpochs: 2000              # maximum number of training iterations
+model_save_iter: 50        # how often do you want to save trained models
+ngpu: 2
+dice: false                 # using additional dice loss
+# mutli-sup: true          # apply supervision to every solution 
+
+# Hyperparameters:
+lr: 0.0001                 # learning rate
+weight_decay: 0.00001       # weight decay
+lr_policy: poly             # learning rate shceduler
+step_size: 50              # how often to decay learning rate
+init: kaiming               # initialization [gaussian/kaiming/xavier]
+gamma: 0.5                  # how much to decay learning rate
+batchSz: 2                  # batch size
+opt: adam
+warmup_epochs: 0
+num_batch_per_epoch: 250
+patch_size: (160, 160, 128)
+num_of_threads: 8
+prob: 0.5
+
+# which attention module to use
+attention: Dcpa
+# [DbA/DcpA/ResA/DlA/CBAM/BAM/CbA/Pica/None]
+resume: /home/b26170223/Documents/kits_ab/work/20191208_1102 full_seg_vnet_4_ker3_aug(prob+0.5)con/vnet_step1_972.tar
+filename: full_seg_vnet_4_ker3_aug(prob+0.5)_con
+method: end2end

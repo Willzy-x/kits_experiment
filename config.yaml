@@ -1,0 +1,31 @@
+# Training configuration for Kits model
+nEpochs: 1000              # maximum number of training iterations
+model_save_iter: 50        # how often do you want to save trained models
+ngpu: 2
+dice: false                 # using additional dice loss
+adv_train: false            # using adversarial training
+# mutli-sup: true          # apply supervision to every solution 
+
+# Hyperparameters:
+lr: 0.0001                 # learning rate
+weight_decay: 0.00001       # weight decay
+lr_policy: poly             # learning rate shceduler
+step_size: 50              # how often to decay learning rate
+init: kaiming               # initialization [gaussian/kaiming/xavier]
+gamma: 0.5                  # how much to decay learning rate
+batchSz: 4                  # batch size
+opt: adam
+warmup_epochs: 0
+
+# path to load data
+train_dir: /home/b26170223/Documents/kits_ab/set/train/
+test_dir: /home/b26170223/Documents/kits_ab/set/val/
+
+# which attention module to use
+attention: None
+# [DbA/DcpA/ResA/DlA/CBAM/BAM/CbA/Pica/None]
+Upsample_last: None
+# [bilinear/None]
+resume: false
+filename: full_seg_pcnet
+method: end2end
